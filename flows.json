@@ -1,0 +1,347 @@
+[
+    {
+        "id": "f28b9dbf7c3f67cf",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dfa5c685859cb6b3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "29e0bd0db13f0ca7",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "dashboard-group",
+        "type": "ui_group",
+        "name": "Grupo de Dados",
+        "tab": "dashboard-tab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "dashboard-tab",
+        "type": "ui_tab",
+        "name": "Ocean Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "mqtt-in-ph",
+        "type": "mqtt in",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "",
+        "topic": "ocean/ph",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "dfa5c685859cb6b3",
+        "nl": false,
+        "rap": true,
+        "inputs": 0,
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "debug-ph",
+                "ui_gauge_ph"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt-in-salinity",
+        "type": "mqtt in",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "",
+        "topic": "ocean/salinity",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "dfa5c685859cb6b3",
+        "nl": false,
+        "rap": true,
+        "inputs": 0,
+        "x": 220,
+        "y": 280,
+        "wires": [
+            [
+                "debug-salinity",
+                "ui_gauge_salinity"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt-in-temperature",
+        "type": "mqtt in",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "",
+        "topic": "ocean/temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "dfa5c685859cb6b3",
+        "nl": false,
+        "rap": true,
+        "inputs": 0,
+        "x": 220,
+        "y": 340,
+        "wires": [
+            [
+                "debug-temperature",
+                "ui_gauge_temperature"
+            ]
+        ]
+    },
+    {
+        "id": "debug-ph",
+        "type": "debug",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "PH Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "debug-salinity",
+        "type": "debug",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "Salinity Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "debug-temperature",
+        "type": "debug",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "Temperature Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ui_gauge_ph",
+        "type": "ui_gauge",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "PH Gauge",
+        "group": "dashboard-group",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "pH",
+        "label": "pH",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "14",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ui_gauge_salinity",
+        "type": "ui_gauge",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "Salinity Gauge",
+        "group": "dashboard-group",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Salinidade",
+        "label": "g/L",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 680,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ui_gauge_temperature",
+        "type": "ui_gauge",
+        "z": "f28b9dbf7c3f67cf",
+        "name": "Temperature Gauge",
+        "group": "dashboard-group",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 690,
+        "y": 340,
+        "wires": []
+    }
+]

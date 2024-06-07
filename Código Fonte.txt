@@ -1,47 +1,15 @@
-# React + Vite
-
-<div align="center">
-  <h1>EcoWave</h1>
-</div>
-<hr/>
-
-## Descrição
-
-Este projeto consiste em um simulador utilizando o ESP32 para medir o pH, a salinidade e a temperatura da água. Os dados são enviados via MQTT para o Node-RED e exibidos em um dashboard.
-
-## Componentes Utilizados
-
-- ESP32
-- Potenciômetros (3) para simular sensores de pH, salinidade e temperatura
-- Node-RED
-- Biblioteca PubSubClient para Arduino
-- Conexão Wi-Fi
-- Broker MQTT (utilizamos o broker público do HiveMQ)
-
-## Plataformas Utilizadas
-
-[Wokwi:] Para simulação do Arduino e seus componentes.
-[TagoIO:] Para conexão, envio e visualização dos dados em dashboards.
-
-
-## Código Arduino
-
-Instruções de Uso
-
-### Passo 1: Configurar o ESP32
-
-1. **Código do ESP32**: Utilize o código abaixo para programar seu ESP32. 
-```cpp
 #include <WiFi.h>
 #include <PubSubClient.h>
 
 // Configurações da rede Wi-Fi
-const char* ssid = "SWokwi-GUEST";
+const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 
-// Configurações do servidor MQTT (HiveMQ Broker público)
-const char* mqtt_server = "broker.hivemq.com";
+// Configurações do servidor MQTT
+const char* mqtt_server = "broker.hivemq.com"; // 
 const int mqtt_port = 1883;
+const char* mqtt_user = ""; // Se não precisar de autenticação, deixe vazio
+const char* mqtt_password = ""; // Se não precisar de autenticação, deixe vazio
 
 // Definição dos pinos dos sensores
 const int phPin = 34;
@@ -53,7 +21,6 @@ PubSubClient client(espClient);
 
 void setup_wifi() {
   delay(10);
-  Serial.begin(115200);
   Serial.println();
   Serial.print("Conectando a ");
   Serial.println(ssid);
@@ -74,7 +41,7 @@ void setup_wifi() {
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Tentando conectar ao MQTT...");
-    if (client.connect("ESP32Client")) {
+    if (client.connect("ESP32Client", mqtt_user, mqtt_password)) {
       Serial.println("conectado");
     } else {
       Serial.print("falha, rc=");
@@ -137,24 +104,3 @@ void loop() {
 
   delay(300); // Enviar dados a cada 0,3 segundos
 }
-
-##  Fluxo dos Dados 
-
-Os dados são enviados do Wokwi para o Node-RED, que os processa e encaminha para o TagoIO.
-
-![alt text](wokwi.png)
-
-![alt text](nos_nodered.png)
-
-Os dados são visualizados em dashboards no TagoIO para monitoramento em tempo real.
-
-![alt text](dashboard.png)
-
-## Conclusão
-
-Com esses passos, você terá um simulador que mede o pH, a salinidade e a temperatura da água e envia esses dados para o Node-RED, onde podem ser visualizados em um dashboard.
-
-## :smile: Integrantes
-- [Maria Julia Araujo Rodrigues - RM553384](https://github.com/majuaraujo)
-
-###### Clique no nome para visitar o GitHub
