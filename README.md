@@ -154,7 +154,6 @@ Os dados são visualizados em dashboards no TagoIO para monitoramento em tempo r
 
 Com esses passos, você terá um simulador que mede o pH, a salinidade e a temperatura da água e envia esses dados para o Node-RED, onde podem ser visualizados em um dashboard.
 
-## :smile: Integrantes
+## Integrantes
 - [Maria Julia Araujo Rodrigues - RM553384](https://github.com/majuaraujo)
 
-###### Clique no nome para visitar o GitHub
