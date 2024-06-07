@@ -140,13 +140,15 @@ void loop() {
 
 Os dados são enviados do Wokwi para o Node-RED, que os processa e encaminha para o TagoIO.
 
-![alt text](wokwi.png)
+![wokwi](https://github.com/majuaraujo/GS---Edge-EcoWave/assets/83989982/1ffc915c-2c27-499c-b12a-6f24c4b773ef)
 
-![alt text](nos_nodered.png)
+![nos_nodered](https://github.com/majuaraujo/GS---Edge-EcoWave/assets/83989982/abd72fa5-e380-4c8a-8833-c526a8f8789a)
+
 
 Os dados são visualizados em dashboards no TagoIO para monitoramento em tempo real.
 
-![alt text](dashboard.png)
+![dashboard](https://github.com/majuaraujo/GS---Edge-EcoWave/assets/83989982/0da5fdac-65b4-475d-b3ba-a4ba5b152e04)
+
 
 ## Conclusão
 
